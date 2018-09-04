@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack  --mode development",
+    "build": "webpack  --mode development",
     "build:prod": "webpack  --mode production"
   },
   "repository": {
@@ -17,8 +17,13 @@
     "url": "https://github.com/ofir-m/data-structures/issues"
   },
   "homepage": "https://github.com/ofir-m/data-structures#readme",
-  "dependencies": {},
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  },
   "devDependencies": {
+    "css-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
     "ts-loader": "^4.5.0",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
