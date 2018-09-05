@@ -19,7 +19,7 @@ module.exports = {
     extensions: [ '.ts', '.js' ]
   },
   output: {
-    filename: 'bundle.ofir.js',
+    filename: 'bundle.data-structures.js',
     path: path.resolve(__dirname, 'dist')
   }
 };
