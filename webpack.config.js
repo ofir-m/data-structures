@@ -1,7 +1,11 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/linkedList.ts',
+  entry: {
+    main: './src/linkedList.ts'
+  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -11,15 +15,26 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use:['style-loader','css-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ],
       }
     ]
   },
   resolve: {
-    extensions: [ '.ts', '.js' ]
+    extensions: ['.ts', '.js']
   },
   output: {
-    filename: 'bundle.data-structures.js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.data-structures.js'
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+
+  ]
 };
